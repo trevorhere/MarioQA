@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2936b1f4.chunk.css",
+    "main.js": "/static/js/main.fce7e21b.chunk.js",
+    "main.js.map": "/static/js/main.fce7e21b.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.6b26b212.chunk.js": "/static/js/2.6b26b212.chunk.js",
+    "static/js/2.6b26b212.chunk.js.map": "/static/js/2.6b26b212.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.7b7d50bcf9e210e54731bcb43571e771.js": "/precache-manifest.7b7d50bcf9e210e54731bcb43571e771.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2936b1f4.chunk.css.map": "/static/css/main.2936b1f4.chunk.css.map",
+    "static/media/failSong.mp3": "/static/media/failSong.251c8426.mp3",
+    "static/media/passSong.mp3": "/static/media/passSong.84ce4391.mp3",
+    "static/media/startSong.mp3": "/static/media/startSong.69ad6359.mp3"
+  }
+}
