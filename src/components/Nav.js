@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppBar, Toolbar, Avatar, Button } from 'react95';
+import { AppBar, Toolbar } from 'react95';
 
 
 class Nav extends Component {

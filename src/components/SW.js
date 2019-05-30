@@ -6,7 +6,8 @@ import Swipe from "react-easy-swipe";
 import Music from './Music'
 import Nav from './Nav';
 
-import { Window, WindowHeader, WindowContent, ListItem, Divider, Button } from 'react95';
+import { Window, WindowHeader, WindowContent, Button } from 'react95';
+
 
 
 
@@ -15,6 +16,9 @@ class SW extends Component {
     super(props);
     this.state = {
       position: 0,
+      start: false,
+      pass: false,
+      fail: false
 
     };
   }
@@ -64,15 +68,24 @@ class SW extends Component {
     });
   };
 
+
+
   render() {
-
-
     const { position } = this.state;
     const { nodes } = this.props;
     console.log("nodes", nodes);
+
+    let togglePlay = (song, type) => {
+      this.setState({ type: !this.state.type }, () => {
+        this.state.type ? song.play() : song.pause();
+      });
+    }
+
+
     return (
       <div>
         <Nav />
+
         <Swipe
           onSwipeLeft={() => this.setPosition("left")}
           onSwipeRight={() => this.setPosition("right")}
@@ -84,9 +97,18 @@ class SW extends Component {
               <Window shadow={true} className="window">
                 <WindowHeader className="window-header" >{nodes[position].title}</WindowHeader>
                 <WindowContent>
-                  <Music name={"Start Test"} url={nodes[position].startSong} />
+                  {/* {[...nodes[position].songs]} */}
+                  <Button onClick={() => { togglePlay(nodes[position].startSong, "start") }}> Start Test</Button>
+                  <br />
+                  <Button onClick={() => { togglePlay(nodes[position].passSong, "pass") }}> Test Passed</Button>
+                  <br />
+
+                  <Button onClick={() => { togglePlay(nodes[position].failSong, "fail") }}> Test Failed</Button>
+
+
+                  {/* <Music name={"Start Test"} url={nodes[position].startSong} />
                   <Music name={"Test Passed"} url={nodes[position].passSong} />
-                  <Music name={"Test Failed"} url={nodes[position].failSong} />
+                  <Music name={"Test Failed"} url={nodes[position].failSong} /> */}
                 </WindowContent>
               </Window>
             </div>
