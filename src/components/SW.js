@@ -1,9 +1,13 @@
 
-    
+
 import React, { Component } from "react";
 import Swipe from "react-easy-swipe";
 
 import Music from './Music'
+import Nav from './Nav';
+
+import { Window, WindowHeader, WindowContent, ListItem, Divider, Button } from 'react95';
+
 
 
 class SW extends Component {
@@ -46,10 +50,10 @@ class SW extends Component {
         adjustment++;
     }
 
-    if (adjustment >= nodes.length ) {
+    if (adjustment >= nodes.length) {
       console.log("adjustment hit");
       adjustment = 0;
-    } else if(adjustment < 0){
+    } else if (adjustment < 0) {
       adjustment = nodes.length - 1;
     }
 
@@ -63,23 +67,33 @@ class SW extends Component {
   render() {
 
 
-    const { position} = this.state;
-    const {nodes} = this.props;
+    const { position } = this.state;
+    const { nodes } = this.props;
     console.log("nodes", nodes);
     return (
-      <Swipe
-        onSwipeLeft={() => this.setPosition("left")}
-        onSwipeRight={() => this.setPosition("right")}
-      >
-        <div className= {"SW"}  style={{backgroundColor: nodes[position].color}}>
-          <div className="card" style={{marginTop:"20%"}}>
-             <h2><img alt="icon" src={nodes[position].image}/>{nodes[position].title}</h2>
-            <Music  name={"Start Test"}     url={nodes[position].startSong}/>
-            <Music   name={"Test Passed"}   url={nodes[position].passSong}/>
-            <Music   name={"Test Failed"}   url={nodes[position].failSong}/>
+      <div>
+        <Nav />
+        <Swipe
+          onSwipeLeft={() => this.setPosition("left")}
+          onSwipeRight={() => this.setPosition("right")}
+        >
+
+          <div className="SW" style={{ backgroundColor: nodes[position].color }}>
+            <div className="card" style={{ marginTop: "10%" }}>
+              <img alt="icon" className="card-img" style={{ height: "100px" }} src={nodes[position].image} />
+              <Window shadow={true} className="window">
+                <WindowHeader className="window-header" >{nodes[position].title}</WindowHeader>
+                <WindowContent>
+                  <Music name={"Start Test"} url={nodes[position].startSong} />
+                  <Music name={"Test Passed"} url={nodes[position].passSong} />
+                  <Music name={"Test Failed"} url={nodes[position].failSong} />
+                </WindowContent>
+              </Window>
             </div>
-        </div>
-      </Swipe>
+          </div>
+
+        </Swipe>
+      </div>
     );
   }
 }

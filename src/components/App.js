@@ -12,6 +12,7 @@ import donkeyKong from '../assets/images/DonkeyKong.png'
 
 
 import SW from './SW';
+import Nav from './Nav';
 
 const ResetStyles = createGlobalStyle`
   ${reset}
@@ -35,8 +36,8 @@ const nodes = [
     passSong,
     failSong,
     color: "#009688"
- },
-  
+  },
+
 
 ]
 
@@ -47,8 +48,8 @@ function App() {
     <div className="App">
       <ResetStyles />
       <ThemeProvider theme={themes.default}>
-      <SW nodes={nodes}/>
-      {/* <header className="App-header">
+        <SW nodes={nodes} />
+        {/* <header className="App-header">
          <Music  name={"Start Test"} url={startSong}/>
          <Music   name={"Test Passed"}   url={passSong}/>
          <Music   name={"Test Failed"}  url={failSong}/>
